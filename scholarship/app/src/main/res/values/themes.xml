@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.Scholarship" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryDark">@color/secondary_gray_background</item>
+        <item name="colorOnPrimary">@color/primary_white</item>
+        <item name="colorSecondary">@color/primary_blue</item>
+        <item name="android:windowBackground">@color/secondary_gray_background</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+</resources>

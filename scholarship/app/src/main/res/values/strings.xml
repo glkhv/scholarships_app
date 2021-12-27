@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">scholarship</string>
+
+    <string name="title_welcome">Добро пожаловать!</string>
+    <string name="title_personal_data">Личные данные</string>
+    <string name="title_create_account">Создать аккаунт</string>
+
+    <string name="subtitle_sign_in_to_continue">Ввойдите в аккаунт, чтобы продолжить</string>
+    <string name="subtitle_personal_data">Заполните личные данные</string>
+    <string name="subtitle_create_account">Введите email и придумайте пароль</string>
+
+    <string name="hint_email">Ваша почта</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_password_repeat">Введите пароль повторно</string>
+    <string name="hint_full_name">ФИО</string>
+    <string name="hint_academic_group_number">Номер академической группы</string>
+    <string name="hint_speciality_name">Наименование специальности</string>
+    <string name="hint_phone_number">Номер телефона</string>
+
+    <string name="placeholder_email">email@email.com</string>
+    <string name="placeholder_password">••••••••</string>
+    <string name="placeholder_full_name">Иванов Иван Иванович</string>
+    <string name="placeholder_academic_group_number">Например, РИ-110012</string>
+    <string name="placeholder_speciality_name">Например, Программная инженерия</string>
+    <string name="placeholder_phone_number">+7 (9__) ___-__-__</string>
+
+    <string name="sign_in">Войти в аккаунт</string>
+    <string name="forget_password_text">Забыли пароль?</string>
+    <string name="sign_up_text">Ещё нет аккаунта? Зарегистрируйтесь</string>
+    <string name="already_signed_up_text">Уже зарегистрированы? Войти в аккаунт</string>
+    <string name="next_step">Следующий шаг</string>
+    <string name="forget_password_congrats">Вы забыли пароль! Поздравляю!</string>
+    <string name="agreement_to_terms_of_personal_data">Я согласен с условиями обработки персональных данных</string>
+    <string name="feature_will_be_soon">Функционал скоро появится, следите за обновлениями!</string>
+    <string name="signup">Зарегистрироваться</string>
+    <string name="successful_registration">Вы успешно зарегистрировались!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="portfolio">Портфолио</string>
+    <string name="my_applications">Мои заявки</string>
+    <string name="notifications">Уведомления</string>
+    <string name="profile">Профиль</string>
+
+    <string name="portfolio_profile_expiration_date">Действителен до: %1$s</string>
+
+    <string name="document_add_doc">Добавить документ</string>
+    <string name="document_step1">Шаг 1. Отсканируйте документ</string>
+    <string name="document_step2">Шаг 2. Проверьте скан</string>
+    <string name="document_step3">Шаг 3. Добавьте информацию</string>
+    <string name="back">Назад</string>
+    <string name="document_save">Сохранить документ</string>
+    <string name="hint_document_name">Название документа</string>
+    <string name="hint_event_type">Тип мероприятия</string>
+    <string name="hint_event_status">Статус мероприятия</string>
+    <string name="hint_document_date">Дата получения документа</string>
+    <string name="hint_event_place">Место проведения мероприятия</string>
+
+    <string name="document_accepted">Документ верифицирован</string>
+    <string name="document_awaiting">Ожидает верификации</string>
+    <string name="document_rejected">Документ не прошёл верификацию</string>
+
+    <string name="application_accepted">Заявка принята</string>
+    <string name="application_awaiting">Заявка на рассмотрении</string>
+    <string name="application_rejected">Заявка отклонена</string>
+
+    <string name="document_details_receipt_date">%1$s (действителен до %2$s)</string>
+    <string name="default_date">%1$d.%2$d.%3$d</string>
+    <string name="document_delete">Удалить документ</string>
+    <string name="editing">Редактирование</string>
+    <string name="delete">Удалить</string>
+
+    <string name="application_status_text">Отправлено %1$s</string>
+    <string name="application_scholarship_type">Тип стипендии</string>
+    <string name="application_full_name">ФИО</string>
+    <string name="application_academic_group_number">Номер академической группы</string>
+    <string name="application_speciality_code">Код специальности</string>
+    <string name="application_speciality_name">Наименование специальности</string>
+    <string name="application_total_marks_count">Общее количество оценок</string>
+    <string name="application_excellent_marks_count">Количество оценок отлично</string>
+    <string name="application_linked_documents">Прикрепленные документы</string>
+    <string name="application_cancel">Отменить заявку</string>
+
+    <string name="notification_title">Уведомления</string>
+    <string name="notification_message">Находится в разработке</string>
+
+    <string name="profile_title">Личный кабинет</string>
+    <string name="profile_edit">Редактировать профиль</string>
+    <string name="profile_full_name">ФИО</string>
+    <string name="profile_academic_group_number">Номер академической группы</string>
+    <string name="profile_email">Почта</string>
+    <string name="profile_phone_number">Номер телефона</string>
+    <string name="profile_log_out">Выйти из аккаунта</string>
+</resources>
