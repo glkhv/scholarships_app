@@ -4,13 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'sajdkq37432878fjjlla324fvcx'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://glkhv:12345@localhost/Grants'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
 db = SQLAlchemy(app)
-db.create_all()
 
 
 class Document(db.Model):
@@ -122,5 +121,6 @@ def grant():
     return render_template('grant.html', title="Стипендии", menu="active")
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+    # db.create_all()
