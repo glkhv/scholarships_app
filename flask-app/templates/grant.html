@@ -10,7 +10,7 @@
     <img src="{{url_for('static', filename='img/menu-1.svg')}}" alt="">
     <span>Уведомления</span>
 </a>
-<a href="{{url_for('student')}}" class="menu__link">
+<a href="{{url_for('student', page_num=1)}}" class="menu__link">
     <img src="{{url_for('static', filename='img/menu-2.svg')}}" alt="">
     <span>Студенты</span>
 </a>
@@ -38,16 +38,16 @@
                         <p>Все стипендии</p>
                         <ul class="select-block__list">
                             <li>
-                                <a href="#">Все стипендии</a>
+                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
                             </li>
                             <li>
-                                <a href="#">Стипендия за научные достижения в IT</a>
+                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
                             </li>
                             <li>
-                                <a href="#">Повышенная государственная академическая...</a>
+                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
                             </li>
                             <li>
-                                <a href="#">Повышенная государственная стипендия студ...</a>
+                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
                             </li>
                             <li>
                                 <a href="#">Стипендия правительства РФ по приоритетн...</a>
@@ -73,94 +73,28 @@
             </div>
             <div class="grant__block">
                 <div class="grant__items" id="sortable">
-                    <div class="grant__item" id="send">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>1</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
+
+                    {% for app in applications|sort(attribute="order") %}
+
                     <div class="grant__item">
                         <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>2</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
+                        <p data-loop="{{app.id}}">{{loop.index}}</p>
+                        <p>{{app.fullname}}</p>
+                        <p>{{(app.excellent_marks_count/app.total_marks_count*100)|round|int}}%</p>
+                        <p>{{app.documents_id|length}}</p>
+                        <button data-id="{{app.id}}" class="side-open" page="grant" url="app">Открыть заявку</button>
                     </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>3</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>4</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>5</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>6</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>7</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>8</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>9</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
-                    <div class="grant__item">
-                        <img src="{{url_for('static', filename='img/drag.svg')}}" alt="">
-                        <p>10</p>
-                        <p>Александрова Александра Александровна</p>
-                        <p>100%</p>
-                        <p>8</p>
-                        <button>Открыть заявку</button>
-                    </div>
+
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
     <div class="grant__bottom">
         <div class="grant__bottom-block">
-            <p>Всего принято заявок на стипендию: 10</p>
-            <button data-accept>Сформировать *XLSX</button>
+            <p>Всего принято заявок на стипендию: {{applications|length}}</p>
+            <button data-accept class="excel">
+                <a href="{{url_for('excel')}}" style="color:#fff">Сформировать *XLSX</a></button>
         </div>
     </div>
 </div>
@@ -172,7 +106,46 @@
 
 <script>
     $(function () {
-        $("#sortable").sortable();
+        $("#sortable").sortable({
+            update: function (event, ui) {
+                let order = [];
+                let array = $('.grant__item p:nth-child(2)');
+
+
+
+                array.each(function (index, item) {
+                    order.push(item.getAttribute('data-loop'));
+                    item.textContent = index + 1;
+                });
+
+                $.ajax({
+                    url: '/grant',
+                    type: 'POST',
+                    data: order,
+                    dataType: 'json',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    // success: function (data) {
+                    //     alert(data.message);
+                    // }
+                });
+            }
+        });
+
+        // $('.excel').on('click', function (e) {
+        //     e.preventDefault();
+
+        //     let button = $(this);
+
+        //     $.ajax({
+        //         url: '/excel',
+        //         type: 'GET',
+        //         success: function (data) {
+        //             alert(data);
+        //         }
+        //     });
+        // });
     });
 </script>
 

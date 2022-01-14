@@ -43,6 +43,13 @@
 
     {% block side %}
 
+    <div class="side" id="side">
+        <div class="side__bg"></div>
+        <div class="side__block">
+
+        </div>
+    </div>
+
     {% endblock %}
 
 
@@ -80,6 +87,8 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
     <script src="{{url_for('static', filename='js/tabs.js')}}"></script>
+    <script src="{{url_for('static', filename='js/side.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sert.js')}}"></script>
     {% endblock %}
 
     {% endblock %}
