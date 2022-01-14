@@ -14,9 +14,9 @@ class Sert(db.Model):
     event_status = db.Column(db.String(70), nullable=False)
     date_of_receipt = db.Column(db.String(70), nullable=False)
     event_place = db.Column(db.String(70), nullable=False)
-    img = db.Column(db.Text, nullable=False)
+    filename = db.Column(db.Text, nullable=False)
 
-    def __init__(self, status, title, name, event_type, event_status, date_of_receipt, event_place, img):
+    def __init__(self, status, title, name, event_type, event_status, date_of_receipt, event_place, filename):
         self.status = status
         self.title = title
         self.name = name
@@ -24,7 +24,7 @@ class Sert(db.Model):
         self.event_status = event_status
         self.date_of_receipt = date_of_receipt
         self.event_place = event_place
-        self.img = img
+        self.filename = filename
 
     def __repr__(self):
         return f"<Sert {self.id}>"

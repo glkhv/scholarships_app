@@ -5,7 +5,7 @@ from flask_marshmallow import Marshmallow
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'sajdkq37432878fjjlla324fvcx'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://glkhv:12345@localhost/Grants'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 UPLOAD_FOLDER = 'static/sert'
