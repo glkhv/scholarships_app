@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            {% if (students.items|length) >= 8 %}
+            {% if (students.items|length) >= 1 %}
             <div class="student__content-nav">
                 {% if students.has_prev %}
                 <a href="{{url_for('student', page_num=students.prev_num)}}">

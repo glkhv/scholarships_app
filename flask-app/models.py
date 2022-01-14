@@ -1,5 +1,7 @@
+from email.policy import default
 from config import db, ma
 from sqlalchemy.dialects import postgresql
+from datetime import datetime
 
 
 class Sert(db.Model):
@@ -12,8 +14,9 @@ class Sert(db.Model):
     event_status = db.Column(db.String(70), nullable=False)
     date_of_receipt = db.Column(db.String(70), nullable=False)
     event_place = db.Column(db.String(70), nullable=False)
+    img = db.Column(db.Text, nullable=False)
 
-    def __init__(self, status, title, name, event_type, event_status, date_of_receipt, event_place):
+    def __init__(self, status, title, name, event_type, event_status, date_of_receipt, event_place, img):
         self.status = status
         self.title = title
         self.name = name
@@ -21,6 +24,7 @@ class Sert(db.Model):
         self.event_status = event_status
         self.date_of_receipt = date_of_receipt
         self.event_place = event_place
+        self.img = img
 
     def __repr__(self):
         return f"<Sert {self.id}>"
@@ -29,7 +33,7 @@ class Sert(db.Model):
 class SertSchema(ma.Schema):
     class Meta:
         fields = ("id", "status", "title", "name", "event_type",
-                  "event_status", "date_of_receipt", "event_place")
+                  "event_status", "date_of_receipt", "event_place", "img", "filename")
 
 
 sert_schema = SertSchema()

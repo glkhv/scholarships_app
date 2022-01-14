@@ -1,20 +1,31 @@
-from flask import request
+import os
+from flask import request, jsonify
 from config import app
 from models import *
+from base64 import b64encode
+from werkzeug.utils import secure_filename
+from datetime import date
 
 
 @app.route('/api/sert/add', methods=['POST'])
 def add_sert():
-    status = request.json['status']
-    title = request.json['title']
-    name = request.json['name']
-    event_type = request.json['event_type']
-    event_status = request.json['event_status']
-    date_of_receipt = request.json['date_of_receipt']
-    event_place = request.json['event_place']
+    status = request.form['status']
+    title = request.form['title']
+    name = request.form['name']
+    event_type = request.form['event_type']
+    event_status = request.form['event_status']
+    date_of_receipt = request.form['date_of_receipt']
+    event_place = request.form['event_place']
+    img = request.files['img']
+    filename = request.form['filename']
+
+    file_name = secure_filename(img.filename)
+    file_name = filename.split('.')[-1]
+    img.save(os.path.join(
+        app.config['UPLOAD_FOLDER'], filename + '.' + str(file_name)))
 
     sert = Sert(status, title, name, event_type,
-                event_status, date_of_receipt, event_place)
+                event_status, date_of_receipt, event_place, os.path.join(app.config['UPLOAD_FOLDER'], filename + '.' + str(file_name)))
     db.session.add(sert)
     db.session.commit()
 
@@ -92,6 +103,14 @@ def update_student():
     return student_schema.jsonify(student)
 
 
+@app.route('/api/sendfile', methods=['POST'])
+def file():
+    status = request.files['file']
+    stu = request.form['title']
+
+    return stu
+
+
 @app.route('/api/sert/delete/<id>', methods=['DELETE'])
 def delete_document(id):
     document_current = Sert.query.get(id)
@@ -110,7 +129,7 @@ def delete_document(id):
                 db.session.query(Application).filter_by(
                     id=id).update({'documents_id': documents_array})
 
-                db.session.delete(document_current)
-                db.session.commit()
+    db.session.delete(document_current)
+    db.session.commit()
 
     return sert_schema.jsonify(document_current)

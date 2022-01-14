@@ -66,8 +66,7 @@ def sert_cancel(id):
                 db.session.query(Application).filter_by(
                     id=id).update({'documents_id': documents_array})
 
-                db.session.delete(document_current)
-
+    db.session.delete(document_current)
     db.session.commit()
     resp = jsonify({"message": "Документ удален"})
     resp.status_code = 200

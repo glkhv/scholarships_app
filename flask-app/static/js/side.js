@@ -1,3 +1,12 @@
+$(document).mouseup(function (e) {
+    let sideBlock = $(".side__block");
+    let close = $('.side__close button');
+    if (close.is(e.target) || (!sideBlock.is(e.target) && sideBlock.has(e.target).length === 0)) {
+        $('.side').removeClass('active');
+    }
+});
+
+
 $('.side-open').on('click', function (e) {
     e.preventDefault();
 
@@ -50,8 +59,7 @@ function fillData(data, page) {
                                     до 13.05.2022</p>
                             </div>
                         </div>
-                    </div>
-                `
+                    </div>`
     });
 
     const result = fillSide(output, data, page);

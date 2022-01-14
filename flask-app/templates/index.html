@@ -47,8 +47,8 @@
                     <div class="notif__sert">
                         <div class="notif__sert-inner">
                             <div class="notif__sert-img">
-                                <a href="{{url_for('static', filename='img/sert.png')}}" data-fancybox="images">
-                                    <img src="{{url_for('static', filename='img/sert.png')}}" alt="">
+                                <a href="{{sert.img}}" data-fancybox="images">
+                                    <img src="{{sert.img}}" alt="">
                                 </a>
                             </div>
                             <div class="notif__sert-info">
@@ -110,20 +110,13 @@
                         <p>Все стипендии</p>
                         <ul class="select-block__list">
                             <li>
-                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
+                                <a href="#" data-all="data-all">Все стипендии</a>
                             </li>
+                            {% for item in applications|map(attribute='type')|unique|list %}
                             <li>
-                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
+                                <a href="#">{{item}}</a>
                             </li>
-                            <li>
-                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
-                            </li>
-                            <li>
-                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
-                            </li>
-                            <li>
-                                <a href="#">Стипендия правительства РФ по приоритетн...</a>
-                            </li>
+                            {% endfor %}
                         </ul>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -132,11 +125,11 @@
                         </svg>
                     </div>
                 </div>
-                <div class="notif__block grant">
+                <div class="notif__block grant-app">
 
                     {% for app in applications %}
                     {% if app.status == 2 %}
-                    <div class="notif__grant">
+                    <div class="notif__grant" data-filter="{{app.type}}">
                         <div class="notif__grant-info">
                             <h2>{{app.fullname}}, {{app.academic_group_number}}</h2>
                             <p>{{app.type}}</p>
